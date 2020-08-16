@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Akshay Tanotra-->
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<p>values of index are updated in pragraph below table</p>
+
+<table id="table">
+  <tr>
+    <td>cell 00</td>
+    <td>cell 01</td>
+	<td>cell 02</td>
+  </tr>
+  <tr>
+    <td>cell 10</td>
+    <td>cell 11</td>
+	<td>cell 12</td>
+  </tr>
+</table>
+<br> 
+<p id="txtUpd">check value here</p>
+<script>
+
+const table = document.querySelector('table');
+const rows = document.querySelectorAll('tr');
+const rowsArray = Array.from(rows);
+const update = document.getElementById("txtUpd"); 
+
+table.addEventListener('click', (event) => {
+  const rowIndex = rowsArray.findIndex(row => row.contains(event.target));
+  const columns = Array.from(rowsArray[rowIndex].querySelectorAll('td'));
+  const columnIndex = columns.findIndex(column => column == event.target);
+  
+    update.innerHTML = "index are: "+ rowIndex+" "+columnIndex; 
+  console.log(rowIndex, columnIndex)
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
